@@ -22,14 +22,14 @@ cmake .. -DCMAKE_BUILD_TYPE='Release' -DSC_PATH="/home/we/dust/code/supercollide
 cmake --build . --config Release
 cmake --build . --config Release --target install
 rm -rf PortedPlugins
-mv src/portedplugins/built/PortedPlugins /home/we/dust/code/supercollider-engines/
+mv /home/we/dust/code/supercollider-engines/src/portedplugins/built/PortedPlugins /home/we/dust/code/supercollider-engines/
 
 # build mi-UGens
 cd /home/we/dust/code/supercollider-engines/src/mi-UGens
 chmod +x build.sh
 ./build.sh /home/we/dust/code/supercollider-engines/supercollider-Version-3.12.2/
 rm -rf mi-Ugens
-mv src/mi-UGens/build/mi-UGens /home/we/dust/code/supercollider-engines/
+mv /home/we/dust/code/supercollider-engines/src/mi-UGens/build/mi-UGens /home/we/dust/code/supercollider-engines/
 
 # clean up
 rm -rf supercollider-Version-3.12.2 Version-3.12.2.tar.gz
