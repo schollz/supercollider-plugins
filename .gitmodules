@@ -1,3 +1,6 @@
 [submodule "portedplugins"]
 	path = portedplugins
 	url = https://github.com/madskjeldgaard/portedplugins
+[submodule "mi-UGens"]
+	path = mi-UGens
+	url = https://github.com/v7b1/mi-UGens
