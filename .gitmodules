@@ -1,0 +1,3 @@
+[submodule "portedplugins"]
+	path = portedplugins
+	url = https://github.com/madskjeldgaard/portedplugins
