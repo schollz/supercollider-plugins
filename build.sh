@@ -11,6 +11,16 @@ sudo apt install cmake
 wget https://github.com/supercollider/supercollider/archive/refs/tags/Version-3.12.2.tar.gz
 tar -xvzf Version-3.12.2.tar.gz
 
+# build redFrik plugins
+cd /home/we/dust/code/supercollider-engines/src/f0plugins
+mkdir build
+cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/home/we/dust/code/supercollider-engines/src/f0plugins/built/ -DSC_PATH="/home/we/dust/code/supercollider-engines/supercollider-Version-3.12.2/"
+cmake --build . --config Release
+cmake --build . --config Release --target install
+cp -r /home/we/dust/code/supercollider-engines/src/f0plugins/built/f0plugins /home/we/dust/code/supercollider-engines/
+
+
 # build ported plugins
 # requires a fix to the dsp.h: https://github.com/electro-smith/DaisySP/issues/149
 cd /home/we/dust/code/supercollider-engines
@@ -32,8 +42,10 @@ chmod +x build.sh
 rm -rf mi-Ugens
 mv /home/we/dust/code/supercollider-engines/src/mi-UGens/build/mi-UGens /home/we/dust/code/supercollider-engines/
 
+
 # clean up
 cd /home/we/dust/code/supercollider-engines
 rm -rf supercollider-Version-3.12.2 Version-3.12.2.tar.gz
 git submodule foreach --recursive git clean -xfd
 git submodule foreach --recursive git reset --hard
+
