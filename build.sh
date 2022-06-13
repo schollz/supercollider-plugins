@@ -8,8 +8,7 @@ sudo apt install cmake
 
 
 # download SuperCollider source
-wget https://github.com/supercollider/supercollider/archive/refs/tags/Version-3.12.2.tar.gz
-tar -xvzf Version-3.12.2.tar.gz
+make
 
 # IBufWr
 cd /home/we/dust/code/supercollider-plugins/src/IBufWr
