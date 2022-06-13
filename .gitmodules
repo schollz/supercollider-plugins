@@ -13,3 +13,6 @@
 [submodule "src/f0plugins"]
 	path = src/f0plugins
 	url = https://github.com/redFrik/f0plugins
+[submodule "src/IBufWr"]
+	path = src/IBufWr
+	url = https://github.com/tremblap/IBufWr
