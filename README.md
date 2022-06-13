@@ -1,5 +1,12 @@
 # supercollider-engines
 
+## build all
+
+```
+git checkout build
+./build.sh
+```
+
 ## install
 
 first clear your extensions directory (don't do this if you have special extensions)
