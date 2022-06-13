@@ -1,6 +1,8 @@
 #!/bin/bash
 
 # get the modules
+git submodule foreach --recursive git clean -xfd
+git submodule foreach --recursive git reset --hard
 git submodule update --init --recursive
 sudo apt install cmake
 
@@ -31,3 +33,5 @@ mv src/mi-UGens/build/mi-UGens .
 
 # clean up
 rm -rf supercollider-Version-3.12.2 Version-3.12.2.tar.gz
+git submodule foreach --recursive git clean -xfd
+git submodule foreach --recursive git reset --hard
