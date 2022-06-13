@@ -13,6 +13,7 @@ tar -xvzf Version-3.12.2.tar.gz
 
 # build ported plugins
 # requires a fix to the dsp.h: https://github.com/electro-smith/DaisySP/issues/149
+cd /home/we/dust/code/supercollider-engines
 sed -i -e 's/__arm__/__armdisable__/g' src/portedplugins/DaisySP/Source/Utility/dsp.h
 cd src/portedplugins
 rm -rf build
@@ -32,6 +33,7 @@ rm -rf mi-Ugens
 mv /home/we/dust/code/supercollider-engines/src/mi-UGens/build/mi-UGens /home/we/dust/code/supercollider-engines/
 
 # clean up
+cd /home/we/dust/code/supercollider-engines
 rm -rf supercollider-Version-3.12.2 Version-3.12.2.tar.gz
 git submodule foreach --recursive git clean -xfd
 git submodule foreach --recursive git reset --hard
