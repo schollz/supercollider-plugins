@@ -10,3 +10,6 @@
 [submodule "src/mi-UGens"]
 	path = src/mi-UGens
 	url = https://github.com/v7b1/mi-UGens
+[submodule "src/f0plugins"]
+	path = src/f0plugins
+	url = https://github.com/redFrik/f0plugins
