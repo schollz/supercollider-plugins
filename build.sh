@@ -12,14 +12,14 @@ make
 
 # IBufWr
 cd /home/we/dust/code/supercollider-plugins/src/IBufWr
-mkdir build
+mkdir -p build
 cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/home/we/dust/code/supercollider-plugins/src/IBufWr/built/ -DSC_PATH="/home/we/dust/code/supercollider-plugins/supercollider-Version-3.12.2/" -DSUPERNOVA=OFF
 cmake --build . --config Release
 cmake --build . --config Release --target install
-mkdir /home/we/dust/code/supercollider-plugins/IBufWr
+mkdir -p /home/we/dust/code/supercollider-plugins/IBufWr
 mv /home/we/dust/code/supercollider-plugins/src/IBufWr/build/IBufWr.so /home/we/dust/code/supercollider-plugins/IBufWr/
-mv /home/we/dust/code/supercollider-plugins/src/IBufWr/IBufWr.so /home/we/dust/code/supercollider-plugins/IBufWr/
+mv /home/we/dust/code/supercollider-plugins/src/IBufWr/IBufWr.sc /home/we/dust/code/supercollider-plugins/IBufWr/
 exit
 
 # build redFrik plugins
