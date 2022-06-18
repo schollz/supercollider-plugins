@@ -55,6 +55,7 @@ mkdir -p build
 cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/home/we/dust/code/supercollider-plugins/supercollider-plugins/ -DSC_PATH="/home/we/dust/code/supercollider-plugins/supercollider-Version-3.12.2/" -DSUPERNOVA=OFF
 cmake --build . --config Release
+cmake --build . --config Release --target install
 
 # triangleptr
 cd /home/we/dust/code/supercollider-plugins/src/triangleptr
