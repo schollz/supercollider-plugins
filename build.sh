@@ -10,13 +10,25 @@ sudo apt install cmake
 # download SuperCollider source
 make
 
+# super-bufrd
+cd /home/we/dust/code/supercollider-plugins/src/super-bufrd
+mkdir -p build
+cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/home/we/dust/code/supercollider-plugins/ -DSC_PATH="/home/we/dust/code/supercollider-plugins/supercollider-Version-3.12.2/" -DSUPERNOVA=OFF
+cmake --build . --config Release
+mkdir -p /home/we/dust/code/supercollider-plugins/SuperBuf
+cp /home/we/dust/code/supercollider-plugins/src/super-bufrd/build/*.so /home/we/dust/code/supercollider-plugins/SuperBuf/
+cp /home/we/dust/code/supercollider-plugins/src/super-bufrd/*.sc /home/we/dust/code/supercollider-plugins/SuperBuf/
+cp -r /home/we/dust/code/supercollider-plugins/src/super-bufrd/HelpSource /home/we/dust/code/supercollider-plugins/SuperBuf/
+
+
 # houvilainenfilter
 cd /home/we/dust/code/supercollider-plugins/src/houvilainenfilter
 mkdir -p build
 cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/home/we/dust/code/supercollider-plugins/ -DSC_PATH="/home/we/dust/code/supercollider-plugins/supercollider-Version-3.12.2/" -DSUPERNOVA=OFF
-cmake --build . --config Release
-exit
+make -j
+make install
 
 # NasalDemons
 cd /home/we/dust/code/supercollider-plugins/src/NasalDemons
@@ -24,6 +36,7 @@ mkdir -p build
 cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/home/we/dust/code/supercollider-plugins/ -DSC_PATH="/home/we/dust/code/supercollider-plugins/supercollider-Version-3.12.2/" -DSUPERNOVA=OFF
 cmake --build . --config Release
+cmake --build . --config Release --target install
 
 # XPlayBuf
 cd /home/we/dust/code/supercollider-plugins/src/XPlayBuf
@@ -31,14 +44,7 @@ mkdir -p build
 cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/home/we/dust/code/supercollider-plugins/ -DSC_PATH="/home/we/dust/code/supercollider-plugins/supercollider-Version-3.12.2/" -DSUPERNOVA=OFF
 cmake --build . --config Release
-
-# super-bufrd
-cd /home/we/dust/code/supercollider-plugins/src/super-bufrd
-mkdir -p build
-cd build
-cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/home/we/dust/code/supercollider-plugins/ -DSC_PATH="/home/we/dust/code/supercollider-plugins/supercollider-Version-3.12.2/" -DSUPERNOVA=OFF
-cmake --build . --config Release
-exit
+cmake --build . --config Release --target install
 
 # pulseptr
 cd /home/we/dust/code/supercollider-plugins/src/pulseptr
