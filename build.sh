@@ -10,6 +10,30 @@ sudo apt install cmake
 # download SuperCollider source
 make
 
+# pulseptr
+cd /home/we/dust/code/supercollider-plugins/src/pulseptr
+mkdir -p build
+cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/home/we/dust/code/supercollider-plugins/ -DSC_PATH="/home/we/dust/code/supercollider-plugins/supercollider-Version-3.12.2/" -DSUPERNOVA=OFF
+cmake --build . --config Release
+exit
+
+# triangleptr
+cd /home/we/dust/code/supercollider-plugins/src/triangleptr
+mkdir -p build
+cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/home/we/dust/code/supercollider-plugins/ -DSC_PATH="/home/we/dust/code/supercollider-plugins/supercollider-Version-3.12.2/" -DSUPERNOVA=OFF
+cmake --build . --config Release
+cmake --build . --config Release --target install
+
+# supercollider-cd-skip
+cd /home/we/dust/code/supercollider-plugins/src/supercollider-cd-skip
+mkdir -p build
+cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/home/we/dust/code/supercollider-plugins/ -DSC_PATH="/home/we/dust/code/supercollider-plugins/supercollider-Version-3.12.2/" -DSUPERNOVA=OFF
+cmake --build . --config Release
+cmake --build . --config Release --target install
+
 # IBufWr
 cd /home/we/dust/code/supercollider-plugins/src/IBufWr
 mkdir -p build
@@ -20,7 +44,6 @@ cmake --build . --config Release --target install
 mkdir -p /home/we/dust/code/supercollider-plugins/IBufWr
 mv /home/we/dust/code/supercollider-plugins/src/IBufWr/build/IBufWr.so /home/we/dust/code/supercollider-plugins/IBufWr/
 mv /home/we/dust/code/supercollider-plugins/src/IBufWr/IBufWr.sc /home/we/dust/code/supercollider-plugins/IBufWr/
-exit
 
 # build redFrik plugins
 cd /home/we/dust/code/supercollider-plugins/src/f0plugins
