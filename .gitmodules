@@ -34,6 +34,3 @@
 [submodule "src/super-bufrd"]
 	path = src/super-bufrd
 	url = https://github.com/esluyter/super-bufrd
-[submodule "src/houvilainenfilter"]
-	path = src/houvilainenfilter
-	url = https://github.com/schollz/houvilainenfilter
