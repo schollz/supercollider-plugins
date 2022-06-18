@@ -112,6 +112,6 @@ function redraw()
     screen.text_center("(press K3 to install)")
   end
   screen.update()
-  en
+end
 
  
