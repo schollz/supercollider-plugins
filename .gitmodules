@@ -16,3 +16,12 @@
 [submodule "src/IBufWr"]
 	path = src/IBufWr
 	url = https://github.com/tremblap/IBufWr
+[submodule "src/pulseptr"]
+	path = src/pulseptr
+	url = https://github.com/ryleelyman/pulseptr
+[submodule "src/triangleptr"]
+	path = src/triangleptr
+	url = https://github.com/ryleelyman/triangleptr
+[submodule "src/supercollider-cd-skip"]
+	path = src/supercollider-cd-skip
+	url = https://github.com/nhthn/supercollider-cd-skip
