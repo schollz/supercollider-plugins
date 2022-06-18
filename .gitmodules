@@ -27,7 +27,8 @@
 	url = https://github.com/nhthn/supercollider-cd-skip
 [submodule "src/houvilainenfilter"]
 	path = src/houvilainenfilter
-	url = https://github.com/esluyter/houvilainenfilter
+	url = https://github.com/schollz/houvilainenfilter
+	branch = include-problems
 [submodule "src/NasalDemons"]
 	path = src/NasalDemons
 	url = https://github.com/elgiano/NasalDemons
