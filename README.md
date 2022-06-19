@@ -25,5 +25,5 @@ once installed, these plugins can be used in norns engines. [read here](https://
 ;install https://github.com/schollz/supercollider-plugins
 ```
 
-open script to install plugins.
+open script to install or uninstall the plugins.
 

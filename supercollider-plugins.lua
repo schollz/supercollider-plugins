@@ -85,9 +85,14 @@ function init()
 end
 
 function key(k,z)
-  if k==3 and z==1 and not has_installed then
-    install()
-    os.execute("sudo systemctl restart norns-sclang.service")
+  if k==3 and z==1 then 
+    if has_installed then
+      os.execute("rm -rf /home/we/.local/share/SuperCollider/Extensions/supercollider-plugins")
+    else
+      install()
+      os.execute("sudo systemctl restart norns-sclang.service")
+    end
+    has_installed=is_installed()
   end
 end
 
@@ -96,17 +101,17 @@ function redraw()
   screen.level(15)
   if has_installed then
     screen.move(64,32)
-    screen.text_center("installed")
+    screen.text_center("supercollider plugins")
     screen.move(64,42)
-    screen.text_center("supercollider plugins.")
+    screen.text_center("installed.")
     screen.move(64,52)
     screen.level(2)
-    screen.text_center("(you are ready to go!)")
+    screen.text_center("(press K3 to uninstall)")
   else
     screen.move(64,32)
-    screen.text_center("install")
+    screen.text_center("supercollider plugins")
     screen.move(64,42)
-    screen.text_center("supercollider plugins?")
+    screen.text_center("NOT installed.")
     screen.move(64,52)
     screen.level(2)
     screen.text_center("(press K3 to install)")
