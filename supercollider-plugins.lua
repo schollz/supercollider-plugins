@@ -43,10 +43,6 @@ function reinstall()
 end
 
 function install()
-  if not util.file_exists("/home/we/dust/code/supercollider-plugins/ignore.zip") then
-    os.execute("wget -O /home/we/dust/code/supercollider-plugins/ignore.zip https://github.com/schollz/supercollider-plugins/releases/download/plugins/ignore.zip")
-    os.execute("unzip ignore.zip -d /home/we/dust/code/supercollider-plugins/")
-  end
   local installed_files=os_capture("find /home/we/.local/share/SuperCollider/Extensions -name '*.sc'")
   os.execute("mkdir -p /home/we/.local/share/SuperCollider/Extensions/supercollider-plugins")
   for _,folder in ipairs(list_folders("/home/we/dust/code/supercollider-plugins/ignore")) do
@@ -77,13 +73,19 @@ function is_installed()
 end
 
 function init()
-  has_installed=is_installed()
+  please_wait=true
   clock.run(function()
     while true do
       clock.sleep(1/10)
       redraw()
     end
   end)
+  if not util.file_exists("/home/we/dust/code/supercollider-plugins/ignore.zip") then
+    os.execute("wget -O /home/we/dust/code/supercollider-plugins/ignore.zip https://github.com/schollz/supercollider-plugins/releases/download/plugins/ignore.zip")
+    os.execute("unzip ignore.zip -d /home/we/dust/code/supercollider-plugins/")
+  end
+  please_wait=false
+  has_installed=is_installed()
 end
 
 function key(k,z)
@@ -101,7 +103,10 @@ end
 function redraw()
   screen.clear()
   screen.level(15)
-  if has_installed then
+  if please_wait then
+    screen.move(64,32)
+    screen.text_center("please wait...")
+  elseif has_installed then
     screen.move(64,32)
     screen.text_center("supercollider plugins")
     screen.move(64,42)
