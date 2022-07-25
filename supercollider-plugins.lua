@@ -6,7 +6,6 @@
 -- github.com/schollz/
 --       supercollider-plugins
 
-
 has_installed=false
 
 function os_capture(cmd,raw)
@@ -44,6 +43,10 @@ function reinstall()
 end
 
 function install()
+  if not util.file_exists("/home/we/dust/code/supercollider-plugins/ignore.zip") then
+    os.execute("wget -O /home/we/dust/code/supercollider-plugins/ignore.zip https://github.com/schollz/supercollider-plugins/releases/download/plugins/ignore.zip")
+    os.execute("unzip ignore.zip -d /home/we/dust/code/supercollider-plugins/")
+  end
   local installed_files=os_capture("find /home/we/.local/share/SuperCollider/Extensions -name '*.sc'")
   os.execute("mkdir -p /home/we/.local/share/SuperCollider/Extensions/supercollider-plugins")
   for _,folder in ipairs(list_folders("/home/we/dust/code/supercollider-plugins/ignore")) do
@@ -59,7 +62,6 @@ function install()
   end
   has_installed=is_installed()
 end
-
 
 function is_installed()
   local installed_files=os_capture("find /home/we/.local/share/SuperCollider/Extensions -name '*.sc'")
@@ -85,7 +87,7 @@ function init()
 end
 
 function key(k,z)
-  if k==3 and z==1 then 
+  if k==3 and z==1 then
     if has_installed then
       os.execute("rm -rf /home/we/.local/share/SuperCollider/Extensions/supercollider-plugins")
     else
@@ -118,5 +120,3 @@ function redraw()
   end
   screen.update()
 end
-
- 
