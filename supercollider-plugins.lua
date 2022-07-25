@@ -73,19 +73,21 @@ function is_installed()
 end
 
 function init()
-  please_wait=true
   clock.run(function()
     while true do
       clock.sleep(1/10)
       redraw()
     end
   end)
-  if not util.file_exists("/home/we/dust/code/supercollider-plugins/ignore.zip") then
-    os.execute("wget -O /home/we/dust/code/supercollider-plugins/ignore.zip https://github.com/schollz/supercollider-plugins/releases/download/plugins/ignore.zip")
-    os.execute("unzip ignore.zip -d /home/we/dust/code/supercollider-plugins/")
-  end
-  please_wait=false
-  has_installed=is_installed()
+  clock.run(function()
+    please_wait=true
+    if not util.file_exists("/home/we/dust/code/supercollider-plugins/ignore.zip") then
+      os.execute("wget -O /home/we/dust/code/supercollider-plugins/ignore.zip https://github.com/schollz/supercollider-plugins/releases/download/plugins/ignore.zip")
+      os.execute("unzip ignore.zip -d /home/we/dust/code/supercollider-plugins/")
+    end
+    please_wait=false
+    has_installed=is_installed()
+  end)
 end
 
 function key(k,z)
