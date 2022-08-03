@@ -1,8 +1,5 @@
 # supercollider-plugins / build
 
 ```
-cd src
-git submodule add https://github.com/tremblap/IBufWr
+./build.sh
 ```
-
-now setup build in `build.sh`
