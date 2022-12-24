@@ -105,8 +105,10 @@ cd build
 cmake .. -DCMAKE_BUILD_TYPE='Release' -DSC_PATH="/home/we/dust/code/supercollider-plugins/supercollider-Version-3.12.2/" -DCMAKE_INSTALL_PREFIX="/home/we/dust/code/supercollider-plugins/src/portedplugins/built/" -DSUPERNOVA=OFF
 cmake --build . --config Release
 cmake --build . --config Release --target install
+find .
 rm -rf PortedPlugins
 mv /home/we/dust/code/supercollider-plugins/src/portedplugins/built/PortedPlugins /home/we/dust/code/supercollider-plugins/supercollider-plugins/
+ls /home/we/dust/code/supercollider-plugins/supercollider-plugins/
 
 # build mi-UGens
 sed -i -e 's/-DSC_PATH/-DSUPERNOVA=OFF -DSC_PATH/g' /home/we/dust/code/supercollider-plugins/src/mi-UGens/build.sh
